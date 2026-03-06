@@ -32,6 +32,13 @@ public class LibroService {
 
     public Libro buscarLibroPorTitulo(String titulo) {
 
+        var libroExistente = libroRepository.findByTituloIgnoreCase(titulo);
+
+        if (libroExistente.isPresent()) {
+            System.out.println("El libro ya está registrado en la base de datos.");
+            return libroExistente.get();
+        }
+
         String url = URL_BASE + titulo.replace(" ", "+");
 
         String json = consumoApi.obtenerDatos(url);

@@ -91,8 +91,24 @@ public class MenuPrincipal {
 
         System.out.println("Lista de Libros");
         var libros = libroService.listarLibros();
+        libros.forEach(libro -> {
 
-        libros.forEach(l -> System.out.println(l.getTitulo()));
+            System.out.println("""
+                    -------------------------------
+                    Libro
+                    Título: %s
+                    Autor: %s
+                    Idioma: %s
+                    Descargas: %d
+                    -------------------------------
+                    """.formatted(
+                    libro.getTitulo(),
+                    libro.getAutor().getNombre(),
+                    libro.getIdioma(),
+                    libro.getDescargas()));
+
+        });
+
     }
 
     private void buscarLibroPorTitulo() {
