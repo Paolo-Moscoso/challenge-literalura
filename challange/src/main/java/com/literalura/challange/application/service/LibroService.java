@@ -14,7 +14,6 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
-
 @Service
 public class LibroService {
 
@@ -37,8 +36,7 @@ public class LibroService {
 
         String json = consumoApi.obtenerDatos(url);
 
-        RespuestaGutendexDTO datos =
-                convierteDatos.obtenerDatos(json, RespuestaGutendexDTO.class);
+        RespuestaGutendexDTO datos = convierteDatos.obtenerDatos(json, RespuestaGutendexDTO.class);
 
         if (datos.resultados().isEmpty()) {
             System.out.println("Libro no encontrado");
@@ -76,4 +74,17 @@ public class LibroService {
     public List<Libro> listarLibros() {
         return libroRepository.findAll();
     }
+
+    public List<Autor> listarAutores() {
+        return autorRepository.findAll();
+    }
+
+    public List<Libro> buscarPorIdioma(String idioma) {
+        return libroRepository.findByIdioma(idioma);
+    }
+
+    public List<Autor> autoresVivosEnAnio(int anio) {
+        return autorRepository.autoresVivos(anio);
+    }
+
 }
