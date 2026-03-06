@@ -131,26 +131,6 @@ public class MenuPrincipal {
 
     }
 
-    private void listarLibros() {
-
-        var libros = libroService.listarLibros();
-
-        if (libros.isEmpty()) {
-            System.out.println("No hay libros registrados");
-            return;
-        }
-
-        libros.forEach(libro -> {
-
-            System.out.println("------------");
-            System.out.println("Título: " + libro.getTitulo());
-            System.out.println("Autor: " + libro.getAutor().getNombre());
-            System.out.println("Idioma: " + libro.getIdioma());
-            System.out.println("Descargas: " + libro.getDescargas());
-
-        });
-    }
-
     private void listarAutores() {
 
         var autores = libroService.listarAutores();

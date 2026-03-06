@@ -16,15 +16,15 @@ public class ConsumoApi {
                 .uri(URI.create(url))
                 .build();
 
-        HttpResponse<String> response = null;
-
         try {
-            response = client.send(request, HttpResponse.BodyHandlers.ofString());
-        catch (IOException | InterruptedException e) {
-            System.out.println("Error al consumir la API");
+            HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+            return response.body();
+        } catch (IOException | InterruptedException e) {
+            // Mensaje claro y lanzar runtime
+            System.out.println("Error al consumir la API: " + e.getMessage());
             throw new RuntimeException(e);
         }
 
-        return response.body();
     }
+
 }
