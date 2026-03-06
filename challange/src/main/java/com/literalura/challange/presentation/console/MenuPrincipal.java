@@ -175,6 +175,7 @@ public class MenuPrincipal {
         System.out.println("Ingrese el año:");
 
         var anio = teclado.nextInt();
+        teclado.nextLine();
 
         var autores = libroService.autoresVivosEnAnio(anio);
 

@@ -20,7 +20,8 @@ public class ConsumoApi {
 
         try {
             response = client.send(request, HttpResponse.BodyHandlers.ofString());
-        } catch (IOException | InterruptedException e) {
+        catch (IOException | InterruptedException e) {
+            System.out.println("Error al consumir la API");
             throw new RuntimeException(e);
         }
 

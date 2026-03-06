@@ -57,11 +57,7 @@ public class LibroService {
         autor.setNacimiento(libroDTO.autores().get(0).nacimiento());
         autor.setFallecimiento(libroDTO.autores().get(0).fallecimiento());
 
-        Optional<Autor> autorExistente = autorRepository
-                .findAll()
-                .stream()
-                .filter(a -> a.getNombre().equalsIgnoreCase(autor.getNombre()))
-                .findFirst();
+        Optional<Autor> autorExistente = autorRepository.findByNombreIgnoreCase(autor.getNombre());
 
         if (autorExistente.isPresent()) {
             autor = autorExistente.get();

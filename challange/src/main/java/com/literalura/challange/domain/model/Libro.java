@@ -21,5 +21,6 @@ public class Libro {
     private Integer descargas;
 
     @ManyToOne
+    @JoinColumn(name = "autor_id")
     private Autor autor;
 }

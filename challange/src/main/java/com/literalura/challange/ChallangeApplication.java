@@ -13,7 +13,7 @@ public class ChallangeApplication implements CommandLineRunner {
     private MenuPrincipal menu;
 
     public static void main(String[] args) {
-        SpringApplication.run(LiteraluraApplication.class, args);
+        SpringApplication.run(ChallangeApplication.class, args);
     }
 
     @Override
